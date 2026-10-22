@@ -175,7 +175,7 @@ date: 2026-10-20
 draft: false              # true = not published
 summary: "One line shown on the card."
 tags: ["cooking"]
-weight: 10                # docs/projects only: order in the list
+weight: 10                # projects only: order in the list
 ```
 
 Put a `feature.jpg` in the folder to get a card image. Delete the copied `feature.png` if you don't want one.
@@ -187,7 +187,7 @@ Extras you can use in a page: `{{< alert >}}…{{< /alert >}}`, `{{< youtube VID
 
 | Path | What it is |
 | ---- | ---------- |
-| `content\` | Your pages: `docs\`, `projects\`, `blog\`, `resume.md`, `_index.md` (homepage text) |
+| `content\` | Your pages: `projects\`, `blog\`, `resume.md`, `_index.md` (homepage text) |
 | `hugo.toml` | All settings |
 | `assets\img\` | Your photo |
 | `deploy\` | The 3 files the LXC downloads in step 6 |
