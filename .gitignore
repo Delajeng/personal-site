@@ -1,0 +1,7 @@
+# Hugo build output and caches
+public/
+resources/
+.hugo_build.lock
+
+# Never commit secrets
+.env

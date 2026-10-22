@@ -1,0 +1,44 @@
+{
+  // Optional helpers - they need Hugo installed on the laptop. The site itself is
+  // always built by GitHub, never here.
+  // Run with Ctrl+Shift+P > "Tasks: Run Task". "Preview site" is also Ctrl+Shift+B.
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Preview site",
+      "detail": "Live preview at http://localhost:1313. Renders in memory - writes nothing into this folder.",
+      "type": "shell",
+      "command": "hugo server -D --renderToMemory --noBuildLock --navigateToChanged --openBrowser",
+      "options": {
+        // Image-processing cache goes to Windows' temp folder instead of ./resources
+        "env": { "HUGO_RESOURCEDIR": "${env:TEMP}\\hugo-preview" }
+      },
+      "group": { "kind": "build", "isDefault": true },
+      "presentation": { "reveal": "always", "panel": "dedicated", "clear": true },
+      "problemMatcher": []
+    },
+    {
+      "label": "New page",
+      "detail": "Create a blog post, project or doc page from its template",
+      "type": "shell",
+      "command": "hugo new content ${input:section}/${input:slug}",
+      "presentation": { "reveal": "always", "panel": "shared" },
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "section",
+      "type": "pickString",
+      "description": "What are you adding?",
+      "options": ["blog", "projects", "docs"],
+      "default": "blog"
+    },
+    {
+      "id": "slug",
+      "type": "promptString",
+      "description": "Folder name, lowercase-with-dashes (docs can use a subfolder, e.g. homelab/traefik)",
+      "default": "my-new-page"
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+# =============================================================================
+#  All site settings in one file.
+#  Lines marked TODO are yours to change. Everything else can stay as it is.
+#  Theme reference: https://blowfish.page/docs/configuration/
+# =============================================================================
+
+title = "George's Notes"                 # TODO: site name shown top-left
+baseURL = "https://example.com/"         # the pipeline overrides this with SITE_URL
+theme = "blowfish"
+defaultContentLanguage = "en"
+enableRobotsTXT = true
+enableEmoji = true
+summaryLength = 30
+
+[pagination]
+  pagerSize = 20
+
+[taxonomies]
+  tag = "tags"
+
+# Needed for the search box.
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[imaging]
+  anchor = "Center"
+  [imaging.jpeg]
+    quality = 80
+  [imaging.webp]
+    quality = 80
+
+
+# -----------------------------------------------------------------------------
+#  Menu (top bar). Order = weight, lowest first.
+# -----------------------------------------------------------------------------
+[[menus.main]]
+  name = "Docs"
+  pageRef = "docs"
+  weight = 10
+
+[[menus.main]]
+  name = "Projects"
+  pageRef = "projects"
+  weight = 20
+
+[[menus.main]]
+  name = "Blog"
+  pageRef = "blog"
+  weight = 30
+
+[[menus.main]]
+  name = "Resume"
+  pageRef = "resume"
+  weight = 40
+
+[[menus.main]]
+  identifier = "github"
+  pre = "github"
+  url = "https://github.com/Delajeng"     # TODO-done
+  weight = 90
+
+[[menus.footer]]
+  name = "Tags"
+  pageRef = "tags"
+  weight = 10
+
+[[menus.footer]]
+  name = "RSS"
+  url = "/index.xml"
+  weight = 20
+
+
+# -----------------------------------------------------------------------------
+#  You, and the look of the site
+# -----------------------------------------------------------------------------
+[params]
+  description = "Homelab and DevOps documentation, projects, resume and a blog."
+  copyright = "© George. Content licensed CC BY 4.0 unless stated otherwise."   # TODO-nochange
+  colorScheme = "slate"            # calm options: slate, blowfish, ocean, forest, github, noir
+  defaultAppearance = "light"
+  autoSwitchAppearance = true      # follow the visitor's light/dark setting
+  enableSearch = true
+  enableCodeCopy = true
+  mainSections = ["blog", "projects", "docs"]   # what shows under "Recent" on the homepage
+
+  [params.author]
+    name = "George"                                  # TODO-nochange
+    image = "img/pic.jpg"                         # put a square photo in assets/img/ and point here - done
+    headline = "Support engineer moving into DevOps. I write things down so future me doesn't have to guess."
+    bio = "Homelabber and DevOps engineer based in Poznań."
+    links = [
+      { github = "https://github.com/Delajeng" },       # TODO-done
+      { linkedin = "https://linkedin.com/in/george-mwangi-769a00114" },   # TODO-done
+    ]
+
+  [params.seo]
+    metaDescriptionOrder = ["summary", "description", "site"]
+
+  [params.header]
+    layout = "fixed-fill-blur"
+
+  [params.footer]
+    showMenu = true
+    showCopyright = true
+    showThemeAttribution = true
+    showAppearanceSwitcher = true
+    showScrollToTop = true
+
+  [params.homepage]
+    layout = "profile"             # profile, page, hero, card, background, landing
+    showRecent = true
+    showRecentItems = 6
+    showMoreLink = true
+    showMoreLinkDest = "/blog/"
+    cardView = true
+
+  [params.article]
+    showDate = true
+    showDateUpdated = true
+    showAuthor = false
+    showBreadcrumbs = true
+    showDraftLabel = true
+    showEdit = true
+    editURL = "https://github.com/Delajeng/personal-site/edit/main/content/"   # TODO-done
+    editAppendPath = true
+    showHeadingAnchors = true
+    showPagination = true
+    showReadingTime = true
+    showTableOfContents = true
+    showRelatedContent = true
+    relatedContentLimit = 3
+    showTaxonomies = true
+    showWordCount = false
+    sharingLinks = ["linkedin", "email"]
+
+  [params.list]
+    showBreadcrumbs = true
+    showSummary = true
+    groupByYear = false
+    cardView = false
+
+  [params.term]
+    cardView = true
+
+  [params.sitemap]
+    excludedKinds = ["taxonomy", "term"]
+
+
+# -----------------------------------------------------------------------------
+#  Markdown rendering - required by the theme, leave as is.
+# -----------------------------------------------------------------------------
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.parser]
+      wrapStandAloneImageWithinParagraph = false
+      [markup.goldmark.parser.attribute]
+        block = true
+    [markup.goldmark.renderer]
+      unsafe = true
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        enable = true
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block = [['\[', '\]'], ['$$', '$$']]
+          inline = [['\(', '\)']]
+  [markup.highlight]
+    noClasses = false
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 4

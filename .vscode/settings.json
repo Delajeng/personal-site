@@ -1,0 +1,18 @@
+{
+  // Linux line endings so the Docker build and update.sh never see CRLF.
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "[markdown]": { "editor.wordWrap": "on" },
+
+  // Hide things you never edit: the theme and Hugo's build output.
+  "files.exclude": {
+    "themes": true,
+    "public": true,
+    "resources": true,
+    ".hugo_build.lock": true
+  },
+  "search.exclude": { "themes": true },
+
+  "git.autofetch": true,
+  "git.confirmSync": false
+}

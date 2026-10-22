@@ -1,0 +1,39 @@
+# Homelab deployment: the site + a Cloudflare Tunnel.
+#
+# No ports are opened on your router and none on this host: cloudflared makes
+# an outbound connection to Cloudflare and forwards visitors to http://site:8080
+# over the private Docker network that Compose creates for these two services.
+#
+# Settings live in .env next to this file (see .env.example):
+#   SITE_IMAGE    ghcr.io/<github-user>/<repo>:latest   (all lowercase)
+#   TUNNEL_TOKEN  from the Cloudflare dashboard
+#
+# Updates: update.sh (run by cron every 5 minutes) pulls a new image if the
+# pipeline published one and restarts the site. See README.
+
+services:
+  site:
+    image: ${SITE_IMAGE:?set SITE_IMAGE in .env}
+    container_name: site
+    restart: unless-stopped
+    # Hardening - nginx-unprivileged only needs to write to /tmp.
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    # Uncomment to also reach the site on your LAN at http://<this-host>:8080
+    # ports:
+    #   - "8080:8080"
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflared
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run
+    environment:
+      TUNNEL_TOKEN: ${TUNNEL_TOKEN:?set TUNNEL_TOKEN in .env}
+    depends_on:
+      - site

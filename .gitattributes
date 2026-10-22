@@ -1,0 +1,9 @@
+# Keep LF line endings in the repo even when edited on Windows,
+# so shell steps in Docker/CI never see CRLF.
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.ico binary
+*.ps1 text eol=crlf
