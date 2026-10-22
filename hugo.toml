@@ -70,7 +70,7 @@ summaryLength = 30
 # -----------------------------------------------------------------------------
 [params]
   description = "Homelab and DevOps projects, resume and a blog."
-  copyright = "© George. Content licensed CC BY 4.0 unless stated otherwise."   # TODO-nochange
+  copyright = "© George."   # TODO-done
   colorScheme = "slate"            # calm options: slate, blowfish, ocean, forest, github, noir
   defaultAppearance = "dark"
   autoSwitchAppearance = true      # follow the visitor's light/dark setting
