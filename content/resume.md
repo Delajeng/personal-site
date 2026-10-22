@@ -81,7 +81,7 @@ code, CI/CD pipelines and containers - and document everything on this site.
 ## Certifications
 
 - **Cisco AI Technical Practitioner** . March 2026
-- **AWS Certified Solutions Architect - Associate** . 11.2025
+- **AWS Certified Solutions Architect - Associate** . November 2025
 - **Cisco CCNA** . February 2020(Renewed 2024)
 - **Oracle Cloud Infrastructure Associate** . December 2021 <!-- TODO: exact name and year for each -->
 
