@@ -1,24 +1,53 @@
 ---
 title: "{{ replace .File.ContentBaseName "-" " " | title }}"
 date: {{ .Date }}
-draft: true
-summary: "What it is in one line."
-tags: []            # tech used, e.g. ["terraform", "k3s", "aws"]
-weight: 50          # lower = shown first on the Projects page
+draft: true               # set to false to publish
+summary: "One line shown on the card: what it is and why it exists."
+tags: []                  # tech used, e.g. ["proxmox", "docker", "ci-cd"]
+weight: 50                # order in the Projects list (lower = higher up)
 ---
 
-<!-- Add feature.png next to this file (a diagram or screenshot works well). -->
+<!-- Optional: put feature.png or feature.jpg next to this file (a diagram or screenshot). -->
 
-**Repo:** <https://github.com/YOUR-GITHUB-USER/REPO>
+{{"{{<"}} alert icon="circle-info" {{">}}"}}
+**Status:** Running · **Stack:** TODO · **Repo:** [github.com/Delajeng/TODO](https://github.com/Delajeng/TODO)
+{{"{{<"}} /alert {{">}}"}}
 
-## Problem
+## Goal
 
-What were you trying to solve?
+What problem this solves and what "done" looks like. Two or three sentences.
 
-## What I built
+## Architecture
 
-Architecture, key decisions, diagram.
+{{"{{<"}} mermaid {{">}}"}}
+flowchart LR
+  a["Source"] --> b["Build"]
+  b --> c["Run"]
+  c --> d["Users"]
+{{"{{<"}} /mermaid {{">}}"}}
 
-## What I learned
+One paragraph walking through the diagram from left to right.
 
-The honest bit - what went wrong and how you fixed it.
+## Stack
+
+| Layer | Tool | Why this one |
+| ----- | ---- | ------------ |
+| TODO  | TODO | TODO         |
+
+## Key decisions
+
+- **Decision:** what I chose, what I didn't, and why.
+
+## What broke and what I learned
+
+<!-- Delete this section if nothing broke. -->
+
+- **Symptom:** what I saw. **Cause:** what it really was. **Fix:** what I changed.
+
+## What's next
+
+- Planned improvement.
+
+## Code
+
+{{"{{<"}} github repo="Delajeng/TODO" {{">}}"}}
