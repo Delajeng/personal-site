@@ -77,6 +77,7 @@ summaryLength = 30
   enableSearch = true
   enableCodeCopy = true
   mainSections = ["blog", "projects"]   # what shows under "Recent" on the homepage
+  thumbnailAspectRatio = "2.5"     # card image width:height; higher = shorter cards (theme default 1.5)
 
   [params.author]
     name = "George"                                  # TODO-nochange

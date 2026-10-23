@@ -1,0 +1,7 @@
+/* Shorter cards on the Projects, Blog and home pages: smaller summary text, max 3 lines. */
+.article-link--card .article-link__summary {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+}
