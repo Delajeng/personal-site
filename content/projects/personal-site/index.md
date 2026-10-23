@@ -59,4 +59,4 @@ I write and commit in VS Code. Every push to `main` triggers a GitHub Actions wo
 
 ## Code
 
-{{< github repo="Delajeng/personal-site" >}}
+{{< github repo="Delajeng/personal-site" showThumbnail=false >}}

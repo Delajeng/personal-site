@@ -50,4 +50,4 @@ One paragraph walking through the diagram from left to right.
 
 ## Code
 
-{{"{{<"}} github repo="Delajeng/TODO" {{">}}"}}
+{{"{{<"}} github repo="Delajeng/TODO" showThumbnail=false {{">}}"}}
